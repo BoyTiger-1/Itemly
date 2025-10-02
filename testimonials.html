@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Itemly Lost & Found System</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --uw-purple: #4b2e83;
+            --uw-gold: #b7a57a;
+            --bright-purple: #7c3aed;
+            --electric-blue: #3b82f6;
+            --emerald: #10b981;
+            --orange: #f97316;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --red: #ef4444;
+            --yellow: #f59e0b;
+            --indigo: #6366f1;
+            --nc-navy: #003366;
+            --nc-silver: #c8c9ca;
+            --nc-gold: #ffd700;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--nc-navy) 0%, var(--bright-purple) 100%);
+            border-bottom: none;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 20px rgba(0, 51, 102, 0.15);
+        }
+
+        .navbar-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white) !important;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85) !important;
+            padding: 0.75rem 1rem !important;
+            border-radius: 6px;
+            transition: all 0.2s;
+            margin-right: 50px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--white) !important;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, var(--nc-navy) 0%, var(--electric-blue) 50%, var(--emerald) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonial-grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonial-grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .hero-section > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.1);
+        }
+
+        .school-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--white) 0%, rgba(0, 51, 102, 0.03) 100%);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--nc-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Testimonial Sections */
+        .testimonial-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .testimonial-section:nth-child(even) {
+            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(0, 51, 102, 0.05) 50%, rgba(16, 185, 129, 0.05) 100%);
+        }
+
+        .testimonial-section:nth-child(odd) {
+            background: linear-gradient(135deg, var(--white) 0%, rgba(59, 130, 246, 0.03) 50%, rgba(255, 215, 0, 0.03) 100%);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        /* Testimonial Cards */
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            height: 100%;
+            border: 1px solid var(--gray-200);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.02) 0%, rgba(59, 130, 246, 0.02) 50%, rgba(16, 185, 129, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--nc-navy);
+            font-family: 'Space Grotesk', serif;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            line-height: 1;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--nc-navy), var(--electric-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .author-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-institution {
+            font-size: 0.85rem;
+            color: var(--nc-navy);
+            font-weight: 500;
+        }
+
+        /* Rating Stars */
+        .testimonial-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .star {
+            color: var(--nc-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Featured Testimonial */
+        .featured-testimonial {
+            background: linear-gradient(135deg, var(--nc-navy) 0%, var(--bright-purple) 100%);
+            color: var(--white);
+            border-radius: 32px;
+            padding: 4rem 3rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="featured-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23featured-dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .featured-testimonial > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-quote {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .featured-author {
+            text-align: center;
+        }
+
+        .featured-author h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-role {
+            font-size: 1rem;
+            color: var(--nc-gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .featured-institution {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Impact Metrics */
+        .impact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--nc-navy) 0%, var(--electric-blue) 50%, var(--emerald) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="impact-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23impact-grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .impact-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--white) 0%, rgba(0, 51, 102, 0.05) 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--nc-navy), var(--electric-blue));
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 60px 0 40px;
+        }
+
+        .footer h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* Video Testimonial */
+        .video-testimonial {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--gray-900);
+            aspect-ratio: 16/9;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-700) 100%);
+            color: var(--white);
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: linear-gradient(135deg, var(--gray-700) 0%, var(--gray-600) 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 2rem;
+            }
+            
+            .featured-testimonial {
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="home.html" data-aos="fade-right">
+                    <span style="color: var(--nc-gold);">🔍</span> Itemly
+                </a>
+                
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto" data-aos="fade-left">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="testimonials.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#analytics">Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title" data-aos="fade-up">
+                        North Creek High School Success Story
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        Discover how Itemly transformed lost and found operations at North Creek High School in Bothell, Washington, creating a more organized and efficient experience for students, staff, and administration.
+                    </p>
+                    <div class="school-badge" data-aos="fade-up" data-aos-delay="200">
+                        🏫 North Creek High School • Bothell, Washington
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-number">92%</div>
+                        <div class="stat-label">Return Success Rate</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number">847</div>
+                        <div class="stat-label">Items Reunited</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-number">1,850</div>
+                        <div class="stat-label">Active Students Using</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card">
+                        <div class="stat-number">4.8/5</div>
+                        <div class="stat-label">Average User Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Testimonial -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="featured-testimonial" data-aos="fade-up">
+                <p class="featured-quote">
+                    "Implementing Itemly at North Creek High School has been a game-changer for our operations. What used to be a chaotic lost and found office overflowing with unclaimed items is now a streamlined digital system. Our students love how easy it is to report and search for items, and our staff has saved countless hours. The return rate has increased by 250% since implementation."
+                </p>
+                <div class="featured-author">
+                    <h3>Principal Jennifer Martinez</h3>
+                    <p class="featured-role">Principal</p>
+                    <p class="featured-institution">North Creek High School, Bothell WA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Student Experiences</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Real stories from North Creek students who have successfully reunited with their lost belongings
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "I left my backpack with my laptop and all my AP study materials in the library during lunch. I was panicking about my upcoming exams! Someone found it and uploaded it to Itemly within 30 minutes. The description was perfect and I got everything back before my next class. This system is amazing!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EM</div>
+                            <div class="author-info">
+                                <h4>Emma Martinez</h4>
+                                <p class="author-role">Senior, AP Student</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "My mom's ring that I always wear slipped off during PE class. I thought it was gone forever since the gym is so big. The search feature helped me find it - someone had posted 'small silver ring with blue stone found in gym.' The verification questions proved it was mine. I was so relieved!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SJ</div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p class="author-role">Junior, Volleyball Team</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "I accidentally left my car keys in the cafeteria after lunch. Found them on Itemly posted by a lunch supervisor within an hour! I also earned points when I found and returned someone's AirPods. The reward system is cool - I redeemed points for a free North Creek t-shirt!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MK</div>
+                            <div class="author-info">
+                                <h4>Michael Kim</h4>
+                                <p class="author-role">Sophomore, Student Council</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "As someone who uses a wheelchair, I was worried about getting to the main office for lost and found. Itemly's accessibility features are fantastic! I can search and report items from anywhere on campus. Found my chemistry textbook that way and arranged pickup at the library instead. So much easier!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AL</div>
+                            <div class="author-info">
+                                <h4>Alex Liu</h4>
+                                <p class="author-role">Junior, Honor Society</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "The 'Who's Looking for This?' feature is incredible! I found someone's phone after the homecoming dance and it automatically suggested two people who had reported missing phones. The right person was contacted within minutes and picked it up the next morning. Technology at its best!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">TW</div>
+                            <div class="author-info">
+                                <h4>Taylor Wilson</h4>
+                                <p class="author-role">Senior, ASB President</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Lost my wallet with my driver's license and debit card during lunch. I was freaking out because I had work after school! Someone turned it in through Itemly and the privacy features kept my personal info safe. Got it back before 6th period. Lifesaver!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <h4>Jordan Davis</h4>
+                                <p class="author-role">Senior, Part-time Employee</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty & Staff Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Faculty & Staff Feedback</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Teachers, administrators, and support staff share how Itemly has improved their daily operations
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Teaching in multiple classrooms throughout the day, I used to collect 8-10 items daily - phones, calculators, notebooks, hoodies. Now I just snap a photo, upload to Itemly, and students find their own items. It's saved me at least an hour every day and reduced interruptions to my teaching. The analytics also help me see patterns of where students most commonly leave items."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DR</div>
+                            <div class="author-info">
+                                <h4>Dr. Patricia Rodriguez</h4>
+                                <p class="author-role">AP Biology & Chemistry Teacher</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Before Itemly, our main office was constantly dealing with lost item inquiries. Students would come in asking about everything from textbooks to jewelry. Now they can search themselves and only come to us for pickup. Our front desk staff can focus on more important tasks, and student satisfaction has increased dramatically. The return rate improvement has been remarkable."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LJ</div>
+                            <div class="author-info">
+                                <h4>Linda Jackson</h4>
+                                <p class="author-role">Assistant Principal</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "As head of campus security, I find a lot of items during evening cleaning and maintenance. Itemly's mobile app is perfect for my workflow - I can upload items immediately and students often find them before they even realize they're missing. The night mode and offline capability work great for after-hours submissions."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MM</div>
+                            <div class="author-info">
+                                <h4>Marcus Mitchell</h4>
+                                <p class="author-role">Head of Campus Security</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Managing our library's lost and found used to be overwhelming. Students constantly left books, laptops, headphones, and personal items. Itemly's category system and integration with our library catalog has transformed our process. We've reduced lost book replacement costs by 70% and improved student satisfaction significantly."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EV</div>
+                            <div class="author-info">
+                                <h4>Elizabeth Valdez</h4>
+                                <p class="author-role">Head Librarian</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "The gym and athletic facilities generate a lot of lost items - water bottles, clothes, equipment, jewelry. Itemly helps us manage everything efficiently. The photo feature is especially helpful for clothing items. Our athletes love how quick it is to search and claim their gear, and parents appreciate the text notifications."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CB</div>
+                            <div class="author-info">
+                                <h4>Coach Brian Thompson</h4>
+                                <p class="author-role">Athletic Director</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "Implementing Itemly was seamless. The training was comprehensive but easy to follow, and students adopted it immediately without any learning curve. The integration with our student information system was flawless. We went from pilot program to full school deployment in just 3 weeks. Best technology investment we've made for student services."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RT</div>
+                            <div class="author-info">
+                                <h4>Robert Chen</h4>
+                                <p class="author-role">IT Director</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parent Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Parent Perspectives</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                North Creek parents share their experiences with Itemly's impact on their students
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "My daughter Emma is notorious for leaving things everywhere. Since North Creek started using Itemly, she's gotten back her backpack twice, her jacket three times, and even her calculator. The text notifications are great - I know when she's found something or when someone has found her items. It gives me peace of mind!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CM</div>
+                            <div class="author-info">
+                                <h4>Carmen Martinez</h4>
+                                <p class="author-role">Parent</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "When my son lost his expensive graphing calculator right before the SATs, I thought we'd have to buy another one. Someone found it and posted it on Itemly within hours. The verification process ensured it got back to the right person. Saved us $150 and a lot of stress!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DW</div>
+                            <div class="author-info">
+                                <h4>David Wilson</h4>
+                                <p class="author-role">Parent</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "I love how organized and professional North Creek has become with their lost and found system. My daughter can search for her items herself, and I get updates when she finds things or helps others. It's teaching her responsibility while also being incredibly efficient."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info">
+                                <h4>Susan Kim</h4>
+                                <p class="author-role">Parent & PTA Member</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">See North Creek's Success in Action</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Watch how Itemly has transformed lost and found operations at North Creek High School
+            </p>
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="video-testimonial">
+                        <div class="video-placeholder">
+                            ▶️
+                        </div>
+                    </div>
+                    <p class="text-center mt-3 text-muted">
+                        <strong>Featured:</strong> North Creek High School Administration & Students
+                    </p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="testimonial-card" style="border: 3px solid var(--nc-navy);">
+                        <div class="testimonial-rating">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                        <p class="testimonial-quote">
+                            "This 4-minute video shows exactly how we transformed our lost and found process at North Creek. In our first semester alone, we reunited over 400 items with their owners - that's more than we managed in the entire previous year with our old manual system."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background: linear-gradient(135deg, var(--nc-navy), var(--electric-blue));">JM</div>
+                            <div class="author-info">
+                                <h4>Principal Jennifer Martinez</h4>
+                                <p class="author-role">Principal</p>
+                                <p class="author-institution">North Creek High School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title text-white" data-aos="fade-up">North Creek's Impressive Results</h2>
+                    <p class="section-subtitle text-white" data-aos="fade-up" data-aos-delay="100">
+                        Real numbers from North Creek High School showing the transformative power of organized lost and found systems
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-card">
+                        <div class="impact-icon">🎯</div>
+                        <div class="impact-number">92%</div>
+                        <div class="impact-label">Items Successfully Returned</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-card">
+                        <div class="impact-icon">⚡</div>
+                        <div class="impact-number">1.8hrs</div>
+                        <div class="impact-label">Average Reunion Time</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="impact-card">
+                        <div class="impact-icon">💰</div>
+                        <div class="impact-number">$42K</div>
+                        <div class="impact-label">Value of Items Returned</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="impact-card">
+                        <div class="impact-icon">📈</div>
+                        <div class="impact-number">250%</div>
+                        <div class="impact-label">Improvement in Return Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>North Creek Success Story</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem; line-height: 1.6;">
+                        Real testimonials from students, staff, and parents at North Creek High School in Bothell, Washington, showing how Itemly transforms school lost and found operations.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5>Testimonials</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#students">Students</a></li>
+                        <li><a href="#faculty">Faculty & Staff</a></li>
+                        <li><a href="#parents">Parents</a></li>
+                        <li><a href="#results">Results</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5>Success Metrics</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#stats">Return Rates</a></li>
+                        <li><a href="#impact">School Impact</a></li>
+                        <li><a href="#satisfaction">Satisfaction</a></li>
+                        <li><a href="#video">Video Tour</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact North Creek</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Want to speak directly with North Creek about their Itemly experience?
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:info@northcreekhs.org">info@northcreekhs.org</a></li>
+                        <li><a href="tel:+14254085100">(425) 408-5100</a></li>
+                        <li style="color: var(--gray-400);">22300 17th Ave SE, Bothell WA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Itemly School Lost & Found System. All rights reserved. | Testimonials from North Creek High School used with permission.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        // Add interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate numbers on scroll
+            const animateNumbers = () => {
+                const numbers = document.querySelectorAll('.stat-number, .impact-number');
+                numbers.forEach(number => {
+                    const finalValue = number.textContent;
+                    const isPercentage = finalValue.includes('%');
+                    const isDollar = finalValue.includes('$');
+                    const isTime = finalValue.includes('hrs');
+                    let numericValue = parseFloat(finalValue.replace(/[^\d.]/g, ''));
+                    
+                    if (number.dataset.animated) return;
+                    number.dataset.animated = true;
+                    
+                    let current = 0;
+                    const increment = numericValue / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= numericValue) {
+                            current = numericValue;
+                            clearInterval(timer);
+                        }
+                        
+                        let displayValue = current.toFixed(0);
+                        if (isDollar && numericValue >= 1000) {
+                            displayValue = (current / 1000).toFixed(0) + 'K';
+                        }
+                        if (isTime) {
+                            displayValue = current.toFixed(1);
+                        }
+                        
+                        number.textContent = (isDollar ? '$' : '') + displayValue + 
+                                           (isPercentage ? '%' : '') + 
+                                           (isTime ? 'hrs' : '');
+                    }, 50);
+                });
+            };
+
+            // Trigger animation when stats come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumbers();
+                    }
+                });
+            });
+
+            const statsSection = document.querySelector('.stats-section');
+            const impactSection = document.querySelector('.impact-section');
+            if (statsSection) observer.observe(statsSection);
+            if (impactSection) observer.observe(impactSection);
+
+            // Video placeholder interaction
+            const videoPlaceholder = document.querySelector('.video-placeholder');
+            if (videoPlaceholder) {
+                videoPlaceholder.addEventListener('click', function() {
+                    this.innerHTML = '<div style="font-size: 1rem; color: rgba(255,255,255,0.8); text-align: center; padding: 20px;">North Creek High School Video Tour<br><small>Video would load here in production</small></div>';
+                    this.style.cursor = 'default';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itemly - School Lost & Found System</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --uw-purple: #4b2e83;
+            --uw-gold: #b7a57a;
+            --bright-purple: #7c3aed;
+            --electric-blue: #3b82f6;
+            --emerald: #10b981;
+            --orange: #f97316;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--uw-purple) 0%, var(--bright-purple) 100%);
+            border-bottom: none;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 20px rgba(75, 46, 131, 0.15);
+        }
+
+        .navbar-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white) !important;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85) !important;
+            padding: 0.75rem 1rem !important;
+            border-radius: 6px;
+            transition: all 0.2s;
+            margin-right: 50px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--white) !important;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Hero Carousel Section */
+        .hero-carousel {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            height: 100vh;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Carousel backgrounds */
+        .carousel-item:nth-child(1) {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('positive-public-school-culture.webp');
+        }
+
+        .carousel-item:nth-child(2) {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=2032&auto=format&fit=crop');
+        }
+
+        .carousel-item:nth-child(3) {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop');
+        }
+
+        .carousel-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .carousel-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .carousel-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+
+        /* Remove all carousel control styles */
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--pink) 100%);
+            border: none;
+            color: var(--white);
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary-custom:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(249, 115, 22, 0.6);
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .btn-outline-custom {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            font-weight: 600;
+            padding: 12px 34px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: var(--white);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Feature grid */
+        .features-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: var(--white);
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--bright-purple));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .feature-card:nth-child(1) .feature-icon {
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+            color: white;
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, var(--emerald), var(--cyan));
+            color: white;
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, var(--orange), var(--pink));
+            color: white;
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            background: linear-gradient(135deg, var(--bright-purple), var(--pink));
+            color: white;
+        }
+
+        .feature-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Stats section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--uw-purple) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .stats-section > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* Updates section */
+        .updates-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .update-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--white);
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .update-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .update-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: none;
+            position: relative;
+        }
+
+        .update-card:nth-child(1) .update-image {
+            background: linear-gradient(135deg, var(--emerald), var(--cyan));
+        }
+
+        .update-card:nth-child(2) .update-image {
+            background: linear-gradient(135deg, var(--electric-blue), var(--bright-purple));
+        }
+
+        .update-card:nth-child(3) .update-image {
+            background: linear-gradient(135deg, var(--orange), var(--pink));
+        }
+
+        .update-content {
+            padding: 1.5rem;
+        }
+
+        .update-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--uw-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .update-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .update-description {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .update-date {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 60px 0 40px;
+        }
+
+        .footer h5 {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .carousel-title {
+                font-size: 2.5rem;
+            }
+            
+            .carousel-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .hero-carousel {
+                height: 70vh;
+            }
+
+            .carousel-item {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#" data-aos="fade-right">
+                    <span style="color: var(--uw-gold);">🔍</span> Itemly
+                </a>
+                
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto" data-aos="fade-left">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="losthomepage.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reviews">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#analytics">Update</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Carousel Section -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            </div>
+            <div class="carousel-item">
+            </div>
+            <div class="carousel-item">
+            </div>
+        </div>
+        
+        <div class="carousel-content">
+            <h1 class="carousel-title" data-aos="fade-up">
+                Reuniting students with their belongings
+            </h1>
+            <p class="carousel-subtitle" data-aos="fade-up" data-aos-delay="100">
+                A comprehensive lost and found system designed to efficiently connect found items with their owners through smart categorization and secure verification.
+            </p>
+            <div class="carousel-buttons d-flex flex-wrap gap-3 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="#report" class="btn-primary-custom">
+                    Report Found Item
+                </a>
+                <a href="#browse" class="btn-outline-custom">
+                    Browse Lost Items
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">How it works</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="feature-title">Report Items</h3>
+                        <p class="feature-description">
+                            Found something? Quickly report it with photos, location details, and descriptions to help identify the owner.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Smart Search</h3>
+                        <p class="feature-description">
+                            Advanced filtering by category, location, date, and description makes finding your lost item simple and fast.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3 class="feature-title">Secure Claims</h3>
+                        <p class="feature-description">
+                            Verify ownership through our secure claim process with proof requirements and admin verification.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title">Track Progress</h3>
+                        <p class="feature-description">
+                            Monitor system statistics and track the success rate of reuniting students with their belongings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-number">47</div>
+                        <div class="stat-label">Items Found</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number">23</div>
+                        <div class="stat-label">Successfully Claimed</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card">
+                        <div class="stat-number">2.3</div>
+                        <div class="stat-label">Avg Days to Claim</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activity / Updates Section -->
+    <section class="updates-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Recent Activity</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="update-card">
+                        <div class="update-image">🎒</div>
+                        <div class="update-content">
+                            <div class="update-category">Successfully Claimed</div>
+                            <h3 class="update-title">Blue Nike Backpack Returned</h3>
+                            <p class="update-description">
+                                Student Sarah Johnson successfully claimed her backpack after providing verification details. Found in the cafeteria.
+                            </p>
+                            <div class="update-date">2 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="update-card">
+                        <div class="update-image">📱</div>
+                        <div class="update-content">
+                            <div class="update-category">New Item</div>
+                            <h3 class="update-title">iPhone with Purple Case</h3>
+                            <p class="update-description">
+                                Found in the library study area. Clear case with glitter pattern, appears to be in excellent condition.
+                            </p>
+                            <div class="update-date">4 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="update-card">
+                        <div class="update-image">📚</div>
+                        <div class="update-content">
+                            <div class="update-category">Pending Claim</div>
+                            <h3 class="update-title">Chemistry Textbook Under Review</h3>
+                            <p class="update-description">
+                                Claim submitted for Pearson Chemistry textbook. Admin reviewing verification details provided by student.
+                            </p>
+                            <div class="update-date">6 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>Itemly</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem; line-height: 1.6;">
+                        Connecting students with their lost belongings through efficient reporting, smart searching, and secure verification processes.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#report">Report Item</a></li>
+                        <li><a href="#browse">Browse Items</a></li>
+                        <li><a href="#claim">Submit Claim</a></li>
+                        <li><a href="#analytics">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Guidelines</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact Information</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:support@itemly.school">support@itemly.school</a></li>
+                        <li><a href="tel:+15551234567">(555) 123-4567</a></li>
+                        <li style="color: var(--gray-400);">Main Office, Room 101</li>
+                        <li style="color: var(--gray-400);">Monday - Friday, 8 AM - 5 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Itemly School Lost & Found System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>
